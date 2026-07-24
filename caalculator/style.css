@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #080a10;
+  overflow: hidden;
+}
+
+/* Brain / Neural Particle Background */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Main Container holding Hands and Calculator */
+.main-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hands-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hands Image Styling */
+.hands-image {
+  position: absolute;
+  width: 520px;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.3));
+}
+
+/* Calculator Wrapper */
+.calculator-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+/* Calculator Box */
+.calculator {
+  background: rgba(22, 25, 37, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7),
+              0 0 25px rgba(0, 229, 255, 0.2);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  width: 320px;
+  transition: transform 0.05s ease-in-out;
+}
+
+/* Shake Animation Class */
+.calculator.shake {
+  animation: shake 0.15s ease-in-out;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-3px, 3px) rotate(-1deg); }
+  50% { transform: translate(3px, -2px) rotate(1deg); }
+  75% { transform: translate(-2px, -3px) rotate(-0.5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Display */
+.display input {
+  width: 100%;
+  height: 70px;
+  background: rgba(12, 14, 20, 0.9);
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  color: #00e5ff;
+  font-size: 2rem;
+  text-align: right;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+}
+
+/* Buttons Grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  height: 55px;
+  border: none;
+  border-radius: 12px;
+  background: #202436;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.1s ease;
+}
+
+/* Glow Effect on Hover & Click */
+.btn:hover {
+  background: #2a3047;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
+}
+
+.btn:active {
+  transform: scale(0.95);
+  background: #00e5ff;
+  color: #0d0f17;
+  box-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff;
+}
+
+/* Special Button Styles */
+.btn.operator {
+  color: #ff007f;
+}
+.btn.operator:active {
+  background: #ff007f;
+  color: #fff;
+  box-shadow: 0 0 20px #ff007f, 0 0 40px #ff007f;
+}
+
+.btn.action {
+  color: #ffb703;
+}
+.btn.action:active {
+  background: #ffb703;
+  color: #0d0f17;
+  box-shadow: 0 0 20px #ffb703;
+}
+
+.btn.equal {
+  grid-row: span 2;
+  height: 100%;
+  background: #00e5ff;
+  color: #0d0f17;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.btn.zero {
+  grid-column: span 2;
+}
